@@ -10,10 +10,10 @@ type UserService struct {
 	generators.UnimplementedUserServiceServer
 }
 
-func AddUser(context context.Context, user *generators.User) (*generators.User, error) {
+func (*UserService) AddUser(ctx context.Context, request *generators.User) (*generators.User, error) {
 	return &generators.User{
 		Id:    "1",
-		Name:  user.GetName(),
-		Email: user.GetEmail(),
+		Name:  request.GetName(),
+		Email: request.GetEmail(),
 	}, nil
 }
